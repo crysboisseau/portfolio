@@ -1,0 +1,88 @@
+/* Bouton Rouge Custom */
+.btn-red-custom {
+    background-color: #ce1a3a !important; /* Le rouge exact de l'image */
+    color: white !important;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-red-custom:hover {
+    background-color: #a3142e !important;
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(206, 26, 58, 0.4);
+}
+
+/* Espacement entre les paragraphes */
+.parcours-container p, 
+.glass-card p {
+    margin-bottom: 1.5rem;
+}
+
+/* Style des listes (puces rouges) */
+.custom-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.custom-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.custom-list li::before {
+    content: "•";
+    color: #ce1a3a;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* Glassmorphism */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+/* SIDEBAR DROITE */
+.sidebar-projets {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+
+    width: 220px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 15px;
+
+    z-index: 999;
+
+    /* amélioration */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+
+    /* animation légère */
+    transition: transform 0.3s ease;
+}
+
+/* liens */
+.sidebar-link {
+    display: block;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.sidebar-link:hover {
+    color: #ce1a3a;
+    transform: translateX(-3px);
+}

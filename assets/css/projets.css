@@ -1,0 +1,168 @@
+/* ============================================================
+   VARIABLES ET BASES (COHÉRENCE AVEC TON PORTFOLIO)
+   ============================================================ */
+:root {
+    --primary-red: #ce1a3a;
+    --dark-red: #a3142e;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================
+   CARTES DE MÉTHODOLOGIE (TOP GRID)
+   ============================================================ */
+.method-card {
+    background: var(--glass-bg) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+    transition: all 0.35s ease;
+    text-align: center;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Petit liseré rouge en bas qui s'anime au survol */
+.method-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--primary-red);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.method-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(206, 26, 58, 0.4) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.method-card:hover::after {
+    width: 80%;
+}
+
+.method-card i {
+    color: var(--primary-red);
+    display: block;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(206, 26, 58, 0.3));
+}
+
+/* ============================================================
+   SECTION NOTION (MOCKUP NAVIGATEUR)
+   ============================================================ */
+.mockup-browser {
+    background: #0f0f0f;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mockup-header {
+    background: #1a1a1a;
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+/* Couleurs des points façon Mac/Browser */
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.mockup-browser img {
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+    filter: grayscale(20%);
+}
+
+.mockup-browser:hover {
+    transform: scale(1.02) rotateX(1deg);
+}
+
+.mockup-browser:hover img {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+/* ============================================================
+   TYPOGRAPHIE ET BADGES
+   ============================================================ */
+.section-title-gp {
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-left: 4px solid var(--primary-red);
+    padding-left: 15px;
+    margin-bottom: 25px;
+}
+
+.badge-outline-red {
+    background: rgba(206, 26, 58, 0.1);
+    border: 1px solid var(--primary-red);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    margin-right: 8px;
+}
+
+/* ============================================================
+   LISTE PERSONNALISÉE (REPRISE DE TON STYLE)
+   ============================================================ */
+.gp-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.gp-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.gp-list li::before {
+    content: "→";
+    color: var(--primary-red);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* ============================================================
+   RÉGLAGE PARTICULES ET FLUX
+   ============================================================ */
+.page-section {
+    position: relative;
+    z-index: 1; /* Assure que le texte est au dessus du background */
+}
+
+/* Animation d'entrée pour la section complète */
+.section-animate {
+    animation: slideInTop 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Adaptation Mobile */
+@media (max-width: 991px) {
+    .mockup-browser {
+        margin-top: 30px;
+    }
+}

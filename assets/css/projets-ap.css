@@ -1,0 +1,131 @@
+/* Timeline verticale */
+.timeline {
+    position: relative;
+    margin-left: 20px;
+    padding-left: 30px;
+    border-left: 2px solid rgba(255,255,255,0.1);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -38px;
+    top: 10px;
+    width: 14px;
+    height: 14px;
+    background-color: #ce1a3a;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(206,26,58,0.6);
+}
+
+.timeline-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.timeline-card:hover {
+    transform: translateX(5px);
+    border: 1px solid rgba(206,26,58,0.3);
+}
+
+/* Titres sections */
+.section-title {
+    border-left: 4px solid #ce1a3a;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+/* Boutons plus stylés */
+.btn-red-custom {
+    background-color: #ce1a3a !important;
+    border-radius: 30px;
+    font-size: 0.85rem;
+}
+
+/* SIDEBAR DROITE */
+.sidebar-projets {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+
+    width: 220px;
+
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    padding: 15px;
+
+    z-index: 999;
+
+    /* amélioration */
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+
+    /* animation légère */
+    transition: transform 0.3s ease;
+}
+
+/* liens */
+.sidebar-link {
+    display: block;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+.sidebar-link:hover {
+    color: #ce1a3a;
+    transform: translateX(-3px);
+}
+
+
+/* éviter que ça gêne sur petits écrans */
+@media (max-width: 992px) {
+
+    /* SIDEBAR : on la transforme proprement */
+    .sidebar-projets {
+        position: static;
+        width: 100%;
+        margin-top: 40px;
+
+        max-height: none;
+        overflow: visible;
+
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        padding: 15px;
+    }
+
+    /* timeline plus lisible sur mobile */
+    .timeline {
+        margin-left: 0;
+        padding-left: 20px;
+    }
+
+    .timeline-item::before {
+        left: -30px;
+    }
+
+    /* cartes un peu plus compactes */
+    .timeline-card {
+        padding: 15px;
+    }
+
+    /* amélioration lisibilité */
+    .section-title {
+        font-size: 1.2rem;
+    }
+}
+

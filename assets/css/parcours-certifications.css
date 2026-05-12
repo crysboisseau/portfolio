@@ -1,0 +1,99 @@
+/* =========================
+   GLASS CARD (VERSION STABLE)
+========================= */
+
+.glass-card {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    /* FIX important clic + rendu GPU propre */
+    transform: translateZ(0);
+}
+
+/* hover clean sans casser les clics */
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(206, 26, 58, 0.4) !important;
+    z-index: 2;
+}
+
+/* =========================
+   LIENS (FIX BUG CLIQUABLE)
+========================= */
+
+.glass-card a {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto !important;
+}
+
+/* sécurité globale liens */
+a {
+    pointer-events: auto;
+}
+
+/* =========================
+   BOUTON ROUGE
+========================= */
+
+.btn-red-custom {
+    background-color: #ce1a3a !important;
+    color: white !important;
+
+    border: none;
+    border-radius: 12px;
+    padding: 12px 25px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+
+    position: relative;
+    z-index: 5;
+}
+
+.btn-red-custom:hover {
+    background-color: #a3142e !important;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(206, 26, 58, 0.4);
+}
+
+/* =========================
+   LOGO BOX
+========================= */
+
+.logo-container {
+    transition: transform 0.3s ease;
+    background-color: #ffffff !important;
+}
+
+.logo-container:hover {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* =========================
+   TYPOGRAPHIE
+========================= */
+
+.glass-card p {
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+/* =========================
+   FIX GLOBAL ANTI BUG CLIC
+========================= */
+
+.glass-card::before,
+.glass-card::after {
+    pointer-events: none;
+}
