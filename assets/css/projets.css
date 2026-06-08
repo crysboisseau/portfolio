@@ -42,9 +42,7 @@
 .mockup-browser img {
     width: 100%;
     height: auto;
-    opacity: 0.78;
     transition: opacity 0.4s ease, filter 0.4s ease;
-    filter: grayscale(20%) brightness(0.85);
 }
 
 .mockup-browser:hover {
