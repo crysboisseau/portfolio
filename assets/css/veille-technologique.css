@@ -39,9 +39,14 @@
    LISTES PERSONNALISÉES
    ========================================================================== */
 .custom-list {
+    color:rgba(71, 85, 105, 0.8);
     list-style: none;
     padding-left: 0;
     margin-bottom: 0;
+}
+
+.dark-theme .custom-list {
+    color: rgba(226, 232, 240, 0.85);
 }
 
 #veille .custom-list li {
