@@ -1,0 +1,363 @@
+/* ==========================================================================
+   1. GLOBAL & FONTS
+   ========================================================================== */
+
+/* ==========================================================================
+   2. NAVBAR CORE (Barre principale)
+   ========================================================================== */
+.navbar {
+    background: var(--surface) !important;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+}
+
+
+
+.theme-toggle-btn {
+    all: unset;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(100, 116, 139, 0.2);
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+.theme-toggle-btn:hover {
+    transform: translateY(-50%) scale(1.02);
+    background: rgba(255, 255, 255, 0.98);
+}
+
+.dark-theme .theme-toggle-btn {
+    background: rgba(148, 163, 184, 0.16);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--text);
+}
+
+.footer-bg {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+
+/* ==========================================================================
+   3. BRAND / LOGO (PORTFOLIO - Fixe à gauche)
+   ========================================================================== */
+.portfolio-brand {
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #334155 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.portfolio-brand:hover {
+    color: #0d6efd !important;
+}
+
+/* ==========================================================================
+   4. NAVIGATION LINKS (Répartition égale & structure Flexbox)
+   ========================================================================== */
+.custom-nav-layout {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.nav-link {
+    color: var(--muted) !important;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 10px 10px;
+    transition: all 0.2s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-link:hover {
+    background: rgba(13, 110, 253, 0.08);
+    color: #0d6efd !important;
+}
+
+.nav-link.active-link {
+    color: #0d6efd !important;
+    border-bottom: 2px solid #0d6efd;
+}
+
+.sub-nav-link {
+    color: var(--text) !important;
+}
+
+.sub-nav-link.active-link {
+    color: #0d6efd !important;
+    border-bottom: 2px solid #0d6efd;
+}
+
+.dark-theme .nav-link.active-link,
+.dark-theme .sub-nav-link.active-link {
+    color: #0d6efd !important;
+    border-bottom-color: #0d6efd !important;
+}
+
+.dark-theme .dropdown-menu-custom a.active-link {
+    background: rgba(13, 110, 253, 0.14);
+    color: #0d6efd;
+}
+
+.dark-theme .portfolio-brand {
+    color: #555555;
+}
+
+/* ==========================================================================
+   5. CUSTOM DROPDOWN (Menus déroulants)
+   ========================================================================== */
+.custom-dropdown {
+    position: relative;
+}
+
+.dropdown-arrow {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #475569;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.25s ease, color 0.25s ease, background 0.25s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+}
+
+.dropdown-arrow:hover {
+    background: rgba(13, 110, 253, 0.15);
+    color: #0d6efd;
+}
+
+/* JavaScript basculera la classe .open sur .custom-dropdown */
+.custom-dropdown.open .dropdown-arrow {
+    transform: rotate(270deg);
+    color: #0d6efd;
+}
+
+.custom-dropdown.open .dropdown-menu-custom {
+    display: flex;
+}
+
+/* Menu déroulant en mode PC (Flottant) */
+.dropdown-menu-custom {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 220px;
+    padding: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    z-index: 9999;
+    box-shadow: 0 10px 30px var(--shadow);
+    animation: dropdownFade 0.2s ease;
+}
+
+.dropdown-menu-custom a {
+    color: var(--text);
+    text-decoration: none;
+    padding: 12px 14px;
+    border-radius: 10px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu-custom a:hover,
+.dropdown-menu-custom a.active-link {
+    background: rgba(13, 110, 253, 0.08);
+    color: #0d6efd;
+}
+
+/* ==========================================================================
+   6. ANIMATIONS
+   ========================================================================== */
+
+/* ==========================================================================
+   7. COMPORTEMENT GRANDS ÉCRANS (PC & Tablettes Paysage)
+   ========================================================================== */
+@media (min-width: 992px) {
+    /* Centre la navbar uniquement sur grands écrans */
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: nowrap;
+    }
+    /* Groupe la marque et les options pour un centrage égal sur grands écrans */
+    .navbar .portfolio-brand,
+    .navbar .navbar-collapse {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9rem;
+    }
+    .navbar-collapse {
+        display: flex !important;
+        flex-grow: 0; /* Ne force plus l'espace restant, permet centrage */
+        justify-content: center;
+    }
+
+    /* Forcer le conteneur à centrer la marque + nav comme un groupe */
+    .navbar .container-fluid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .custom-nav-layout {
+        flex-direction: row !important;
+        justify-content: center; /* Centre PORTFOLIO et les options comme un groupe */
+        gap: 0.9rem; /* Espacement léger entre les éléments */
+        margin-left: 0; /* Suppression du décalage fixe pour centrage */
+    }
+}
+
+/* ==========================================================================
+   8. COMPORTEMENT ÉCRANS MOBILES & TABLETTES VERTICALES
+   ========================================================================== */
+@media (max-width: 991.98px) {
+
+    /* Restaurer le comportement Bootstrap par défaut sur mobile */
+    .navbar {
+        display: block;
+    }
+
+    /* S'assurer que la zone collapse est masquée si elle n'a pas la classe .show */
+    .collapse:not(.show) {
+        display: none !important;
+    }
+
+    /* Alignement à gauche des options sur mobile */
+    .custom-nav-layout {
+        align-items: flex-start;
+    }
+
+    .nav-link-wrapper {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+
+    .custom-nav-layout {
+        margin-top: 15px;
+    }
+
+    .theme-toggle-btn {
+        left: auto;
+        right: 100px;
+    }
+
+    /* Options calées à gauche dans le menu déroulant mobile */
+    .nav-link {
+        justify-content: flex-start;
+        text-align: left;
+        padding: 14px;
+        font-size: 1rem;
+        min-height: 48px;
+    }
+
+    .nav-link-wrapper {
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    /* Transformation des dropdowns en sous-menus intégrés (Accordéon) */
+    .dropdown-menu-custom {
+        position: static;
+        transform: none;
+        width: 100%;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding-left: 20px;
+        padding-top: 0;
+        animation: none;
+        align-items: flex-start;
+    }
+
+    .dropdown-menu-custom a {
+        justify-content: flex-start;
+        width: 100%;
+        min-height: 48px;
+    }
+
+    /* Ligne de sélection active sur le flanc gauche sur mobile */
+    .nav-link.active-link {
+        border-left: 3px solid #0d6efd;
+        border-bottom: none;
+        border-radius: 0 10px 10px 0;
+        padding-left: 11px; 
+    }
+
+    .dropdown-arrow {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+}
+
+/* ==========================================================================
+   9. OPTIMISATIONS PETITS SMARTPHONES
+   ========================================================================== */
+@media (max-width: 480px) {
+
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .portfolio-brand {
+        font-size: 1.2rem;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+
+    .dropdown-arrow {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+    }
+}

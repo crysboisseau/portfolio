@@ -1,0 +1,130 @@
+/* ==========================================================================
+   BASES & ANIMATION D'ENTRÉE
+   ========================================================================== */
+
+/* Titres de sections alignés sur le design global */
+.section-title-veille {
+    border-left: 4px solid #0d6efd;
+    padding-left: 15px;
+    margin-top: 50px;
+    margin-bottom: 35px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* ==========================================================================
+   STRUCTURE DE LA TIMELINE DES ATELIERS (AP)
+   ========================================================================== */
+.ap-timeline-container {
+    position: relative;
+    padding-left: 32px;
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+
+/* La ligne verticale continue */
+.ap-timeline-container::before {
+    content: "";
+    position: absolute;
+    left: 7px; /* Pile au milieu du point de 16px */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(13, 110, 253, 0.18);
+}
+
+.timeline-block {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-block:last-child {
+    margin-bottom: 0;
+}
+
+/* Le point d'ancrage (dot) sur la ligne */
+.timeline-dot {
+    position: absolute;
+    left: -32px; /* Recule précisément sur la ligne */
+    top: 26px;   /* Aligné avec le haut de la carte */
+    width: 16px;
+    height: 16px;
+    background-color: #0d6efd;
+    border-radius: 50%;
+    border: 3px solid #0d6efd;
+    z-index: 2;
+    box-shadow: 0 0 12px rgba(13, 110, 253, 0.6);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease;
+}
+
+/* Animation et interaction des cartes au survol */
+.timeline-card {
+    border-radius: 14px;
+    padding: 24px;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-block:hover .timeline-card {
+    transform: translateX(6px);
+    border-color: rgba(13, 110, 253, 0.4) !important;
+    box-shadow: 0 8px 25px rgba(13, 110, 253, 0.08);
+}
+
+.timeline-block:hover .timeline-dot {
+    transform: scale(1.35);
+    background-color: #ffffff;
+}
+
+/* ==========================================================================
+   BADGES & BOUTONS
+   ========================================================================== */
+.badge-status {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    color: rgba(255, 255, 255, 0.92);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 1200px) {
+    /* Cache l'ancrage fixe qui chevaucherait le contenu principal */
+    .sidebar-projets {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .ap-timeline-container {
+        padding-left: 24px;
+        margin-left: 0;
+    }
+
+    .ap-timeline-container::before {
+        left: 5px;
+        top: 0;
+        bottom: 0;
+        background: rgba(13, 110, 253, 0.18);
+    }
+
+    .timeline-dot {
+        left: -24px;
+        width: 12px;
+        height: 12px;
+        border-width: 2px;
+        top: 28px;
+    }
+
+    .timeline-card {
+        padding: 16px;
+    }
+
+    .timeline-block:hover .timeline-card {
+        transform: none; /* Désactivé sur mobile pour une navigation plus stable */
+    }
+}

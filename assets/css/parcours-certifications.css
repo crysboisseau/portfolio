@@ -1,0 +1,63 @@
+/* =========================
+   LIENS (FIX BUG CLIQUABLE)
+========================= */
+
+/* sécurité globale liens */
+a {
+    pointer-events: auto;
+}
+
+/* =========================
+   LOGO BOX
+========================= */
+
+.logo-container {
+    transition: transform 0.3s ease;
+    background-color: #ffffff !important;
+}
+
+.logo-container:hover {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    /* bouton responsive */
+    .btn-red-custom {
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 1rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* logo mieux adapté */
+    .logo-container {
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    /* désactive les animations lourdes */
+    .logo-container:hover,
+    .btn-red-custom:hover {
+        transform: none;
+    }
+}
+
+/* =========================
+   PETITS TÉLÉPHONES
+========================= */
+
+@media (max-width: 480px) {
+
+    .btn-red-custom {
+        border-radius: 10px;
+        font-size: 0.95rem;
+    }
+}

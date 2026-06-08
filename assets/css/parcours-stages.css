@@ -1,0 +1,111 @@
+/* ==========================================
+   SUB NAV (DESKTOP)
+========================================== */
+
+.stage-step {
+    position: relative;
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.stage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.stage-logo {
+    object-fit: contain;
+}
+
+/* ==========================================
+   LISTES
+========================================== */
+
+.custom-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+#parcours-stages-plastivaloire .custom-list li,
+#parcours-stages-econocom .custom-list li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+#parcours-stages-plastivaloire .custom-list li::before,
+#parcours-stages-econocom .custom-list li::before {
+    content: "•";
+    color: #0d6efd;
+    position: absolute;
+    left: 0;
+}
+
+/* ==========================================
+   MOBILE FIX ULTRA IMPORTANT
+========================================== */
+
+@media (max-width: 768px) {
+
+    /* SUB NAV DEVIENT SCROLL HORIZONTAL */
+    .sub-nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 20px;
+
+        padding: 12px 10px;
+
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .sub-nav::-webkit-scrollbar {
+        display: none; /* Chrome */
+    }
+
+    .sub-nav a,
+    .sub-nav p {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* grid mobile */
+    .stage-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* logo */
+    .stage-logo {
+        max-height: 120px;
+        margin: auto;
+        display: block;
+    }
+
+}
+
+/* ==========================================
+   PETITS ÉCRANS
+========================================== */
+
+@media (max-width: 480px) {
+
+    .sub-nav {
+        gap: 15px;
+    }
+
+    .btn-red-custom {
+        width: 100%;
+    }
+
+    .stage-logo {
+        max-height: 90px;
+    }
+}

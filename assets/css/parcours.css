@@ -1,0 +1,53 @@
+.parcours-container {
+    position: relative;
+    z-index: 1;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.parcours-container p {
+    margin-bottom: 1rem;
+}
+
+/* ==========================================
+   RESPONSIVE MOBILE TIMELINE
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    /* Container général */
+    .parcours-container {
+        padding: 0 10px;
+    }
+
+    /* Card body plus naturel */
+    .card-body {
+        align-items: flex-start;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    /* Texte mobile */
+    .parcours-container p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 0.9rem;
+    }
+
+}
+
+/* ==========================================
+   PETITS SMARTPHONES
+   ========================================== */
+
+@media (max-width: 480px) {
+
+    .parcours-container p {
+        font-size: 0.92rem;
+    }
+}

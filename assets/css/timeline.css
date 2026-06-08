@@ -1,0 +1,98 @@
+/* Le conteneur principal génère la ligne verticale */
+.timeline-container {
+    position: relative;
+    padding-left: 32px;
+    margin-left: 10px;
+    margin-bottom: 40px;
+}
+
+/* Dessin de la ligne de temps */
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    left: 7px; /* Pile au milieu du point de 16px */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(13, 110, 253, 0.18);
+}
+
+/* Bloc d'élément de la timeline */
+.timeline-block {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-block:last-child {
+    margin-bottom: 0;
+}
+
+/* Le point indicateur sur la ligne */
+.timeline-dot {
+    position: absolute;
+    left: -32px; /* Recule exactement dans la zone du padding container */
+    top: 24px;   /* Centre verticalement par rapport au design de la carte */
+    width: 16px;
+    height: 16px;
+    background-color: #0d6efd;
+    border-radius: 50%;
+    border: 3px solid #0d6efd; /* Crée l'effet de coupure sur la ligne */
+    z-index: 2;
+    box-shadow: 0 0 12px rgba(13, 110, 253, 0.6);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Liaison interactive entre la carte et son point associé */
+.timeline-block:hover .timeline-dot {
+    transform: scale(1.3);
+    background-color: #ffffff;
+}
+
+/* ==========================================================
+       TIMELINE
+       ========================================================== */
+@media (max-width: 768px) {
+    .timeline-container {
+        padding-left: 20px;
+        margin-left: 0;
+    }
+
+    .timeline-container::before {
+        left: 4px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: rgba(13, 110, 253, 0.18);
+    }
+
+    .timeline-block {
+        margin-bottom: 35px;
+    }
+
+    .timeline-dot {
+        left: -20px;
+        top: 22px;
+
+        width: 11px;
+        height: 11px;
+
+        border-width: 2px;
+        box-shadow: 0 0 8px rgba(13, 110, 253, 0.5);
+    }
+
+    .timeline-block:hover .timeline-dot {
+        transform: none;
+    }
+
+    /* timeline plus compacte */
+    .stages-timeline {
+        gap: 25px;
+        padding-left: 15px;
+    }
+
+    .stage-dot {
+        left: -12px;
+        width: 10px;
+        height: 10px;
+    }
+}

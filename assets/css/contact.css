@@ -1,0 +1,236 @@
+/* PAGE STRUCTURE */
+.contact-page {
+  flex-direction: column;
+}
+
+/* HEADER */
+.contact-header h1 {
+  letter-spacing: 1px;
+}
+
+.contact-header p {
+  font-size: 1rem;
+}
+
+/* TITLES */
+.section-title {
+  font-size: 1.4rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background: #0d6efd;
+}
+
+/* CONTACT ITEMS */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 14px;
+  border-radius: 10px;
+
+  text-decoration: none;
+  color: #0f172a;
+
+  background: rgba(13,110,253,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+  border-color: rgba(206,26,58,0.4);
+  background: rgba(206,26,58,0.06);
+}
+
+.dark-theme .contact-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(148, 163, 184, 0.18);
+  color: rgba(248, 250, 252, 0.92);
+}
+
+.dark-theme .contact-item:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.dark-theme .contact-item span:first-child {
+  opacity: 0.8;
+  color: rgba(248, 250, 252, 0.78);
+}
+
+.dark-theme .contact-value {
+  color: #38bdf8;
+}
+
+.dark-theme .contact-header h1,
+.dark-theme .contact-header p,
+.dark-theme .section-title {
+  color: #f8fafc;
+}
+
+.dark-theme .section-title::after {
+  background: #38bdf8;
+}
+
+.contact-item span:first-child {
+  opacity: 0.7;
+}
+
+.contact-value {
+  color: #0d6efd;
+  font-size: 0.9rem;
+}
+
+/* CV CARD */
+.cv-card p {
+  max-width: 280px;
+}
+
+/* BUTTON */
+.btn-cv-download {
+  background: linear-gradient(135deg, #0d6efd, #0a58ca) !important;
+  color: white !important;
+
+  border-radius: 50px;
+  padding: 14px 32px;
+
+  font-weight: bold;
+  width: 100%;
+  max-width: 280px;
+
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cv-download:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+/* ============================================================
+   RESPONSIVE CONTACT PAGE
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* PAGE STRUCTURE */
+  .contact-page {
+    padding: 0 10px;
+  }
+
+  /* HEADER */
+  .contact-header h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-header p {
+    font-size: 0.95rem;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* CONTACT LIST */
+  .contact-list {
+    gap: 10px;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 6px;
+
+    padding: 12px;
+  }
+
+  .contact-item:hover {
+    transform: none;
+  }
+
+  .contact-value {
+    font-size: 0.85rem;
+  }
+
+  /* CV CARD */
+  .cv-card p {
+    max-width: 100%;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  /* BUTTON */
+  .btn-cv-download {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 14px 20px;
+    font-size: 0.95rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-cv-download:hover {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   PETITS SMARTPHONES
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+  .contact-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .contact-header p {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .contact-item {
+    padding: 10px;
+  }
+
+  .btn-cv-download {
+    font-size: 0.9rem;
+    padding: 12px 18px;
+  }
+}

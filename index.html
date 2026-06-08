@@ -1,0 +1,266 @@
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.png">
+<div id="particles-js"></div>
+
+<!-- includes dynamiques -->
+<div id="header">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm">
+        <div class="container-fluid">
+            <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Changer le mode clair/sombre">🌙</button>
+            <a class="navbar-brand portfolio-brand" href="#accueil">PORTFOLIO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav custom-nav-layout text-center">
+                    <div class="nav-link-wrapper">
+                        <a href="#accueil" class="text-white-50 nav-link fs-5 fw-bold">Accueil</a>
+                    </div>
+                    <div class="nav-link-wrapper">
+                        <a href="#formation" class="text-white-50 nav-link fs-5 fw-bold">Formation</a>
+                    </div>
+                    <div class="nav-item custom-dropdown">
+                        <div class="nav-link-wrapper">
+                            <a href="#parcours" class="text-white-50 nav-link fs-5 fw-bold">Parcours</a>
+                            <button class="dropdown-arrow" aria-label="Ouvrir le menu parcours">▾</button>
+                        </div>
+                        <div class="dropdown-menu-custom">
+                            <a href="#parcours-stages-plastivaloire" class="sub-nav-link">Stages</a>
+                            <a href="#parcours-certifications" class="sub-nav-link">Certifications</a>
+                            <a href="#parcours-competences" class="sub-nav-link">Compétences</a>
+                        </div>
+                    </div>
+                    <div class="nav-item custom-dropdown">
+                        <div class="nav-link-wrapper">
+                            <a href="#projets" class="text-white-50 nav-link fs-5 fw-bold">Projets</a>
+                            <button class="dropdown-arrow" aria-label="Ouvrir le menu projets">▾</button>
+                        </div>
+                        <div class="dropdown-menu-custom">
+                            <a href="#projets-ap-millenuits" class="sub-nav-link">AP</a>
+                        </div>
+                    </div>
+                    <div class="nav-link-wrapper">
+                        <a href="#veille" class="text-white-50 nav-link fs-5 fw-bold">Veille</a>
+                    </div>
+                    <div class="nav-link-wrapper">
+                        <a href="#contact" class="text-white-50 nav-link fs-5 fw-bold">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<main class="container-fluid p-0">
+
+  <section id="accueil" class="page-section min-vh-100 d-flex align-items-center justify-content-center text-center">
+    <div class="text-dark">
+      <h1 id="nom" class="display-1 fw-bold"></h1>
+      <p class="lead display-6 fst-italic bg-primary p-2 bg-opacity-10">
+        Étudiant BTS SIO SISR à Paul Louis Courier
+      </p>
+      <a href="#projets-ap-millenuits" class="btn btn-primary btn-lg">Mes projets</a>
+    </div>
+  </section>
+
+  <section id="formation" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+  <section id="parcours" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+  <section id="parcours-stages-plastivaloire" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+  <section id="parcours-stages-econocom" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+  <section id="parcours-certifications" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+  <section id="parcours-competences" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+  <section id="projets" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+  <section id="projets-ap-millenuits" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+  <section id="contact" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+  <section id="veille" class="page-section d-none min-vh-100 d-flex align-items-center"></section>
+
+</main>
+
+<div id="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =========================
+       LOAD HTML (INCLUDES)
+    ========================== */
+
+    function loadHTML(id, file) {
+        return fetch(file)
+            .then(res => res.text())
+            .then(data => {
+                const el = document.getElementById(id);
+                if (el) el.innerHTML = data;
+            });
+    }
+
+    function initThemeToggle() {
+        const root = document.documentElement;
+        const toggle = document.getElementById("theme-toggle");
+        if (!toggle) return;
+
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const defaultTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        const currentTheme = savedTheme || defaultTheme;
+
+        const applyTheme = (theme) => {
+            if (theme === "dark") {
+                root.classList.add("dark-theme");
+                root.classList.remove("light-theme");
+                toggle.textContent = "☀️";
+                toggle.setAttribute("aria-label", "Passer en mode clair");
+            } else {
+                root.classList.remove("dark-theme");
+                root.classList.add("light-theme");
+                toggle.textContent = "🌙";
+                toggle.setAttribute("aria-label", "Passer en mode sombre");
+            }
+            localStorage.setItem("portfolio-theme", theme);
+        };
+
+        toggle.addEventListener("click", () => {
+            applyTheme(root.classList.contains("dark-theme") ? "light" : "dark");
+        });
+
+        applyTheme(currentTheme);
+    }
+
+    Promise.all([
+        loadHTML("header", "vues/header.html"),
+        loadHTML("formation", "vues/formation.html"),
+        loadHTML("parcours", "vues/parcours.html"),
+        loadHTML("parcours-stages-plastivaloire", "vues/parcours-stages/parcours-stages-plastivaloire.html"),
+        loadHTML("parcours-stages-econocom", "vues/parcours-stages/parcours-stages-econocom.html"),
+        loadHTML("parcours-certifications", "vues/parcours-certifications/parcours-certifications.html"),
+        loadHTML("parcours-competences", "vues/parcours-competences/parcours-competences.html"),
+        loadHTML("projets", "vues/projets.html"),
+        loadHTML("projets-ap-millenuits", "vues/projets-ap/projets-ap-millenuits.html"),
+        loadHTML("veille", "vues/veille-technologique.html"),
+        loadHTML("contact", "vues/contact.html"),
+        loadHTML("footer", "vues/footer.html")
+    ]).then(initThemeToggle);
+
+    /* =========================
+       NOM
+    ========================== */
+
+    const nomEl = document.getElementById("nom");
+    if (nomEl) nomEl.textContent = "Boisseau Crys";
+
+    /* =========================
+       PARTICLES
+    ========================== */
+
+    if (typeof particlesJS !== "undefined") {
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 25 },
+                color: { value: "#0d6efd" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#0d6efd",
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: { enable: true, speed: 0.85 }
+            },
+            interactivity: {
+                detect_on: "window",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            }
+        });
+    }
+
+    /* =========================
+       SPA NAVIGATION CLEAN
+    ========================== */
+
+    const sections = document.querySelectorAll(".page-section");
+
+    function showSection(id) {
+        if (!id) id = "accueil";
+
+        const target = document.getElementById(id);
+        if (!target) return;
+
+        sections.forEach(sec => {
+            sec.classList.add("d-none");
+            sec.classList.remove("section-animate");
+        });
+
+        target.classList.remove("d-none");
+        void target.offsetWidth;
+        target.classList.add("section-animate");
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        document.querySelectorAll(".active-link")
+            .forEach(el => el.classList.remove("active-link"));
+
+        document.querySelectorAll(`a[href="#${id}"]`)
+            .forEach(el => el.classList.add("active-link"));
+
+        history.pushState(null, "", `#${id}`);
+    }
+
+    document.addEventListener("click", (e) => {
+
+        const link = e.target.closest("a[href^='#']");
+        if (!link) return;
+
+        const id = link.getAttribute("href").replace("#", "");
+        if (!document.getElementById(id)) return;
+
+        e.preventDefault();
+        const isDropdownLink = Boolean(link.closest(".dropdown-menu-custom"));
+        const isMobile = window.matchMedia("(max-width: 991.98px)").matches;
+        if (!isDropdownLink || !isMobile) {
+            document.querySelectorAll(".custom-dropdown.open").forEach(el => el.classList.remove("open"));
+        }
+        showSection(id);
+    });
+
+    document.addEventListener("click", (e) => {
+
+        const btn = e.target.closest(".dropdown-arrow");
+        if (!btn) return;
+
+        const parent = btn.closest(".custom-dropdown");
+        if (!parent) return;
+
+        document.querySelectorAll(".custom-dropdown").forEach(el => {
+            if (el !== parent) el.classList.remove("open");
+        });
+
+        parent.classList.toggle("open");
+    });
+
+    /* =========================
+       BACK BUTTON
+    ========================== */
+
+    window.addEventListener("popstate", () => {
+        const id = window.location.hash.replace("#", "");
+        showSection(id);
+    });
+
+    /* =========================
+       INIT
+    ========================== */
+
+    showSection(window.location.hash.replace("#", ""));
+
+});
+</script>

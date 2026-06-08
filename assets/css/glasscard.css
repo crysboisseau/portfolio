@@ -1,0 +1,168 @@
+/* ==========================================================================
+   COMPOSANTS : GLASS CARDS & INTERIOR PANELS
+   ========================================================================== */
+.glass-card {
+    background: rgba(226, 232, 240, 0.55) !important;
+    border: 1px solid rgba(148, 163, 184, 0.22) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-theme .glass-card {
+    background: rgba(15, 23, 42, 0.36) !important;
+    border-color: rgba(148, 163, 184, 0.14) !important;
+}
+
+.dark-theme .glass-card:hover {
+    border-color: rgba(56, 189, 248, 0.28) !important;
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.18);
+}
+
+.glass-card .text-white {
+    color: var(--text) !important;
+}
+
+.dark-theme .glass-card .text-white {
+    color: #e5e7eb !important;
+}
+
+.dark-theme .glass-card .text-white-50 {
+    color: rgba(226, 232, 240, 0.85) !important;
+}
+
+.glass-card .text-white-50 {
+    color: rgba(71, 85, 105, 0.8) !important;
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(13, 110, 253, 0.4) !important;
+    box-shadow: 0 12px 30px rgba(13, 110, 253, 0.12);
+}
+
+.inner-box {
+    /* Slightly more gray than .glass-card to provide subtle contrast */
+    background: rgba(226, 232, 240, 0.72);
+    border: 1px solid rgba(148, 163, 184, 0.32);
+    border-radius: 12px;
+    padding: 20px;
+    height: 100%;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.dark-theme .inner-box {
+    background: rgba(15, 23, 42, 0.60);
+    border-color: rgba(148, 163, 184, 0.18);
+}
+
+.dark-theme .inner-box-highlight {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.14) 0%, rgba(15, 23, 42, 0.08) 100%) !important;
+}
+
+.inner-box:hover {
+    border-color: rgba(148, 163, 184, 0.42);
+}
+
+.inner-box-highlight {
+    border-color: rgba(13, 110, 253, 0.2) !important;
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.03) 0%, rgba(255, 255, 255, 0.02) 100%) !important;
+}
+
+.badge-option {
+    display: inline-block;
+    background: rgba(13, 110, 253, 0.12);
+    border: 1px solid #0d6efd;
+    color: #5f5f5f;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.dark-theme .badge-option {
+    color: #afafaf;
+}
+
+@media (max-width: 768px) {
+    /* ==========================================================
+       GLASS CARDS
+       ========================================================== */
+
+    .glass-card {
+        padding: 1.2rem !important;
+        border-radius: 16px;
+
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+
+        transform: none !important;
+    }
+
+    .glass-card:hover {
+        transform: none;
+        box-shadow: 0 8px 18px rgba(13, 110, 253, 0.12);
+    }
+
+    .badge-option {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        letter-spacing: 0.03em;
+    }
+
+        .inner-box {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    /* Titres responsive */
+    .glass-card h1,
+    .glass-card h2,
+    .glass-card h3,
+    .glass-card h4 {
+        line-height: 1.25;
+    }
+
+    /* Images fluides */
+    .glass-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    /* texte */
+    .glass-card p {
+        font-size: 0.95rem;
+    }
+
+    .glass-card a {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto !important;
+}
+
+.glass-card::before,
+.glass-card::after {
+    pointer-events: none;
+}
+
+}
+
+@media (max-width: 480px) {
+    .glass-card {
+        padding: 1rem !important;
+        border-radius: 14px;
+    }
+
+    .badge-option {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+
+    .inner-box {
+        padding: 12px;
+    }
+
+}
