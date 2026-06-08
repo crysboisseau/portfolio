@@ -102,7 +102,7 @@ body {
 
 .btn-red-custom:hover {
     background-color: #0a58ca !important;
-    transform: scale(1.05);
+    transform: scale(1.01);
     box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
 }
 
