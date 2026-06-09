@@ -80,6 +80,16 @@
    BADGES & BOUTONS
    ========================================================================== */
 .badge-status {
+    background: rgba(211, 211, 211, 0.08);
+    border: 1px solid rgba(115, 115, 115, 0.32);
+    color: rgba(0, 0, 0, 0.92);
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+   .dark-theme .badge-status {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.32);
     color: rgba(255, 255, 255, 0.92);
