@@ -65,6 +65,11 @@
   color: rgba(248, 250, 252, 0.92);
 }
 
+.dark-theme .contact-item:hover {
+  border-color: rgba(10, 88, 202, 1);
+  background: rgba(10, 88, 202, 0.06);
+}
+
 .dark-theme .contact-item span:first-child {
   opacity: 0.8;
   color: rgba(248, 250, 252, 0.78);
