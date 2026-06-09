@@ -107,7 +107,7 @@ body {
 }
 
 .sub-nav {
-    background: #f8fbff;
+    background: rgba(226, 232, 240, 0.55);
     border-radius: 15px;
     display: flex;
     flex-direction: row;
