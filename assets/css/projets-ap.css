@@ -34,17 +34,17 @@
     background: rgba(13, 110, 253, 0.18);
 }
 
-.timeline-block {
+.ap-timeline-block {
     position: relative;
     margin-bottom: 30px;
 }
 
-.timeline-block:last-child {
+.ap-timeline-block:last-child {
     margin-bottom: 0;
 }
 
 /* Le point d'ancrage (dot) sur la ligne */
-.timeline-dot {
+.ap-timeline-dot {
     position: absolute;
     left: -32px; /* Recule précisément sur la ligne */
     top: 26px;   /* Aligné avec le haut de la carte */
@@ -59,19 +59,19 @@
 }
 
 /* Animation et interaction des cartes au survol */
-.timeline-card {
+.ap-timeline-card {
     border-radius: 14px;
     padding: 24px;
     transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.timeline-block:hover .timeline-card {
+.ap-timeline-block:hover .ap-timeline-card {
     transform: translateX(6px);
     border-color: rgba(13, 110, 253, 0.4) !important;
     box-shadow: 0 8px 25px rgba(13, 110, 253, 0.08);
 }
 
-.timeline-block:hover .timeline-dot {
+.ap-timeline-block:hover .ap-timeline-dot {
     transform: scale(1.35);
     background-color: #ffffff;
 }
@@ -122,19 +122,19 @@
         background: rgba(13, 110, 253, 0.18);
     }
 
-    .timeline-dot {
-        left: -24px;
+    .ap-timeline-dot {
+        left: -21px;
         width: 12px;
         height: 12px;
         border-width: 2px;
         top: 28px;
     }
 
-    .timeline-card {
+    .ap-timeline-card {
         padding: 16px;
     }
 
-    .timeline-block:hover .timeline-card {
+    .ap-timeline-block:hover .ap-timeline-card {
         transform: none; /* Désactivé sur mobile pour une navigation plus stable */
     }
 }
