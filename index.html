@@ -109,14 +109,29 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentTheme = savedTheme || defaultTheme;
 
         const applyTheme = (theme) => {
+            
+            const navbar = document.querySelector(".navbar");
+
             if (theme === "dark") {
                 root.classList.add("dark-theme");
                 root.classList.remove("light-theme");
+
+                if (navbar) {
+                    navbar.classList.remove("navbar-light");
+                    navbar.classList.add("navbar-dark");
+                }
+
                 toggle.textContent = "☀️";
                 toggle.setAttribute("aria-label", "Passer en mode clair");
             } else {
                 root.classList.remove("dark-theme");
                 root.classList.add("light-theme");
+
+                if (navbar) {
+                    navbar.classList.remove("navbar-dark");
+                    navbar.classList.add("navbar-light");
+                }
+                
                 toggle.textContent = "🌙";
                 toggle.setAttribute("aria-label", "Passer en mode sombre");
             }
