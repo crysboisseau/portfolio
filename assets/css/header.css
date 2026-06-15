@@ -286,6 +286,7 @@
     .theme-toggle-btn {
         left: auto;
         right: 100px;
+        top: 32px;
     }
 
     /* Options calées à gauche dans le menu déroulant mobile */
