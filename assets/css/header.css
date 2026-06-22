@@ -122,6 +122,12 @@
     border-bottom-color: #0d6efd !important;
 }
 
+:root .nav-link.active-link,
+:root .sub-nav-link.active-link {
+    color: #0d6efd !important;
+    border-bottom-color: #0d6efd !important;
+}
+
 .dark-theme .dropdown-menu-custom a.active-link {
     background: rgba(13, 110, 253, 0.14);
     color: #0d6efd;
